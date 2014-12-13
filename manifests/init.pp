@@ -135,11 +135,13 @@ class icinga(
     exec { 'icinga_dpkg_statoverride_var_lib_icinga_rw':
       command => '/usr/bin/dpkg-statoverride --update --add nagios www-data 2710 /var/lib/icinga/rw',
       notify  => Service['icinga'],
+      require => Package['icinga'],
     }
 
     exec { 'icinga_dpkg_statoverride_var_lib_icinga':
       command => '/usr/bin/dpkg-statoverride --update --add nagios nagios 751 /var/lib/icinga',
       notify  => Service['icinga'],
+      require => Package['icinga'],
     }
   }
 
