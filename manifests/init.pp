@@ -158,7 +158,7 @@ class icinga(
 
   file { '/etc/icinga/icinga.cfg':
     content => template('icinga/icinga.cfg.erb'),
-    require => Package['icinga']
+    require => Package['icinga'],
     notify  => Service['icinga'],
   }
 
